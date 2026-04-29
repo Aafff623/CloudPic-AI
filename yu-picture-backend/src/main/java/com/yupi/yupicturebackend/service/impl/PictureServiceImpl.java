@@ -55,7 +55,7 @@ import java.util.stream.Collectors;
 
 /**
  * 图片上传主流程：
- *  校验权限和文件 -> 上传到 COS -> 解析图片信息 -> 保存 picture 表 -> 返回 PictureVO
+ *      校验权限和文件 -> 上传到 COS -> 解析图片信息 -> 保存 picture 表 -> 返回 PictureVO
  */
 @Slf4j
 @Service
@@ -86,6 +86,10 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
     @Resource
     private AliYunAiApi aliYunAiApi;
 
+    /**
+     * 校验图片
+     * @param picture
+     */
     @Override
     public void validPicture(Picture picture) {
         ThrowUtils.throwIf(picture == null, ErrorCode.PARAMS_ERROR);
@@ -104,6 +108,13 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         }
     }
 
+    /**
+     * 上传图片
+     * @param inputSource          文件输入源
+     * @param pictureUploadRequest
+     * @param loginUser
+     * @return
+     */
     @Override
     public PictureVO uploadPicture(Object inputSource, PictureUploadRequest pictureUploadRequest, User loginUser) {
         // 校验参数
@@ -347,6 +358,11 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         return queryWrapper;
     }
 
+    /**
+     * 图片审核，管理员可以对待审核的图片进行通过或拒绝的操作，记录审核人、审核时间和审核备注等信息
+     * @param pictureReviewRequest
+     * @param loginUser
+     */
     @Override
     public void doPictureReview(PictureReviewRequest pictureReviewRequest, User loginUser) {
         // 1. 校验参数
@@ -394,6 +410,12 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         }
     }
 
+    /**
+     * 批量抓取和创建图片
+     * @param pictureUploadByBatchRequest
+     * @param loginUser
+     * @return
+     */
     @Override
     public Integer uploadPictureByBatch(PictureUploadByBatchRequest pictureUploadByBatchRequest, User loginUser) {
         // 校验参数
@@ -453,6 +475,10 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         return uploadCount;
     }
 
+    /**
+     * 清理图片文件
+     * @param oldPicture
+     */
     @Async
     @Override
     public void clearPictureFile(Picture oldPicture) {
@@ -474,6 +500,11 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         }
     }
 
+    /**
+     * 删除图片
+     * @param pictureId
+     * @param loginUser
+     */
     @Override
     public void deletePicture(long pictureId, User loginUser) {
         ThrowUtils.throwIf(pictureId <= 0, ErrorCode.PARAMS_ERROR);
@@ -501,6 +532,11 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         this.clearPictureFile(oldPicture);
     }
 
+    /**
+     * 编辑图片
+     * @param pictureEditRequest
+     * @param loginUser
+     */
     @Override
     public void editPicture(PictureEditRequest pictureEditRequest, User loginUser) {
         // 在此处将实体类和 DTO 进行转换
@@ -525,6 +561,11 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR);
     }
 
+    /**
+     * 校验空间图片的权限
+     * @param loginUser
+     * @param picture
+     */
     @Override
     public void checkPictureAuth(User loginUser, Picture picture) {
         Long spaceId = picture.getSpaceId();
@@ -542,6 +583,13 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         }
     }
 
+    /**
+     * 根据颜色搜索图片
+     * @param spaceId
+     * @param picColor
+     * @param loginUser
+     * @return
+     */
     @Override
     public List<PictureVO> searchPictureByColor(Long spaceId, String picColor, User loginUser) {
         // 1. 校验参数
@@ -585,6 +633,11 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
                 .collect(Collectors.toList());
     }
 
+    /**
+     * 批量编辑图片，支持批量修改分类、标签和名称等信息，名称支持按照规则自动生成（如“图片{序号}”）
+     * @param pictureEditByBatchRequest
+     * @param loginUser
+     */
     @Override
     public void editPictureByBatch(PictureEditByBatchRequest pictureEditByBatchRequest, User loginUser) {
         // 1. 获取和校验参数
@@ -627,6 +680,12 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         ThrowUtils.throwIf(!result, ErrorCode.OPERATION_ERROR, "批量编辑失败");
     }
 
+    /**
+     * 创建扩图任务
+     * @param createPictureOutPaintingTaskRequest
+     * @param loginUser
+     * @return
+     */
     @Override
     public CreateOutPaintingTaskResponse createPictureOutPaintingTask(CreatePictureOutPaintingTaskRequest createPictureOutPaintingTaskRequest, User loginUser) {
         // 获取图片信息

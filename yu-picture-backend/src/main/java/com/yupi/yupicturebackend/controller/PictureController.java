@@ -208,6 +208,8 @@ public class PictureController {
 
     /**
      * 分页获取图片列表（仅管理员可用）
+     * 图片列表高频访问，适合做缓存优化
+     * 查询流程：先查本地缓存 / Redis，未命中再查数据库，最后写回缓存
      */
     @PostMapping("/list/page")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)

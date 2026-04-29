@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * COS 通用能力封装，负责调用腾讯云 SDK 完成文件上传、下载等操作
+ * COS 通用能力封装，负责调用腾讯云 SDK 完成文件上传、下载等操作, 可在上传时接入图片压缩、格式转换、缩略图生成等处理
  */
 @Component
 public class CosManager {
