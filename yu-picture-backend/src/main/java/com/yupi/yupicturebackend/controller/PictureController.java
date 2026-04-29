@@ -51,7 +51,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author 程序员鱼皮 <a href="https://www.codefather.cn">编程导航原创项目</a>
+ * 图片接口层，接收图片上传、查询、详情、编辑、删除等请求
  */
 @Slf4j
 @RestController

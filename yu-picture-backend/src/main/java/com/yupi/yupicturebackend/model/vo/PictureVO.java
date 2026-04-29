@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 图片展示对象，返回给前端列表页
+ * 详情页使用，避免直接暴露数据库实体
+ */
 @Data
 public class PictureVO implements Serializable {
 

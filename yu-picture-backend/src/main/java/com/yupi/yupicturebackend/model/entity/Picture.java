@@ -7,7 +7,8 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 图片
+ * 图片数据库实体类，对应 picture 表
+ * 保存图片 URL、名称、简介、分类、标签、大小、宽高、格式、创建用户等元信息
  * @TableName picture
  */
 @TableName(value ="picture")

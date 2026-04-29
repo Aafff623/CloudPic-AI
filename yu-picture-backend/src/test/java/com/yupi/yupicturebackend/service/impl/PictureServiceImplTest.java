@@ -10,6 +10,8 @@ import com.yupi.yupicturebackend.model.entity.Picture;
 import com.yupi.yupicturebackend.model.entity.Space;
 import com.yupi.yupicturebackend.model.entity.User;
 import com.yupi.yupicturebackend.model.enums.PictureReviewStatusEnum;
+import com.yupi.yupicturebackend.model.vo.PictureVO;
+import com.yupi.yupicturebackend.model.vo.UserVO;
 import com.yupi.yupicturebackend.service.SpaceService;
 import com.yupi.yupicturebackend.service.UserService;
 import org.junit.jupiter.api.*;
@@ -611,7 +613,6 @@ class PictureServiceImplTest {
         assertEquals(1, resultPage.getRecords().size());
         assertNotNull(resultPage.getRecords().get(0).getUser());
     }
-
     // ==================== 11. searchPictureByColor 边界测试 ====================
 
     @DisplayName("测试 11.1: searchPictureByColor - 参数缺失")

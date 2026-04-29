@@ -9,7 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 图片查询请求
+ * 图片查询请求对象，用于按关键词、分类、标签、用户等条件分页搜索图片
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

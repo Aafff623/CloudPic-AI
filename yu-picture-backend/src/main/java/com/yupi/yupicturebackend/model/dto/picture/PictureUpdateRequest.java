@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 图片更新请求
+ * 图片上传请求对象，接收图片名称、简介、分类、标签等业务信息
  */
 @Data
 public class PictureUpdateRequest implements Serializable {

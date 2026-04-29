@@ -54,9 +54,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @author 程序员鱼皮 <a href="https://www.codefather.cn">编程导航原创项目</a>
- * @description 针对表【picture(图片)】的数据库操作Service实现
- * @createDate 2024-12-11 20:45:51
+ * 图片上传主流程：
+ *  校验权限和文件 -> 上传到 COS -> 解析图片信息 -> 保存 picture 表 -> 返回 PictureVO
  */
 @Slf4j
 @Service
@@ -221,6 +220,12 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         return PictureVO.objToVo(picture);
     }
 
+    /**
+     * 图片信息脱敏 / 包装，将 Picture 实体转换为前端需要的 PictureVO
+     * @param picture
+     * @param request
+     * @return
+     */
     @Override
     public PictureVO getPictureVO(Picture picture, HttpServletRequest request) {
         // 对象转封装类
@@ -268,6 +273,11 @@ public class PictureServiceImpl extends ServiceImpl<PictureMapper, Picture>
         return pictureVOPage;
     }
 
+    /**
+     * 根据查询请求动态构造图片查询条件，支持关键词、分类、标签、用户、排序等筛选
+     * @param pictureQueryRequest
+     * @return
+     */
     @Override
     public QueryWrapper<Picture> getQueryWrapper(PictureQueryRequest pictureQueryRequest) {
         QueryWrapper<Picture> queryWrapper = new QueryWrapper<>();

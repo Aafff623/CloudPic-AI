@@ -11,6 +11,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 腾讯云 COS 客户端配置，读取密钥、地域、桶名等对象存储配置
+ */
 @Configuration
 @ConfigurationProperties(prefix = "cos.client")
 @Data

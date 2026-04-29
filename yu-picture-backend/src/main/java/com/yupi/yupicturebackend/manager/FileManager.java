@@ -25,6 +25,7 @@ import java.util.List;
 
 /**
  * 文件服务
+ * 文件能力封装，负责文件校验、路径生成、图片信息解析，并调用 CosManager 上传文件
  * @deprecated 已废弃，改为使用 upload 包的模板方法优化
  */
 @Slf4j
