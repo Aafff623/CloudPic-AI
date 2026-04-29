@@ -29,7 +29,7 @@ public interface PictureService extends IService<Picture> {
 
     /**
      * 上传图片
-     *
+     * 用户和管理员共用的图片上传方法// 新增或编辑图片时需要校验权限，并根据用户角色填充审核状态
      * @param inputSource          文件输入源
      * @param pictureUploadRequest
      * @param loginUser
@@ -59,7 +59,7 @@ public interface PictureService extends IService<Picture> {
 
     /**
      * 获取查询对象
-     *
+     * 图片查询条件构造器// 普通用户只能查询审核通过的图片，管理员可按审核状态筛选全部图片
      * @param pictureQueryRequest
      * @return
      */
@@ -68,7 +68,7 @@ public interface PictureService extends IService<Picture> {
 
     /**
      * 图片审核
-     *
+     * 管理员审核图片：校验审核状态 -> 校验图片存在 -> 防止重复审核 -> 更新审核人和审核时间
      * @param pictureReviewRequest
      * @param loginUser
      */
@@ -76,7 +76,7 @@ public interface PictureService extends IService<Picture> {
 
     /**
      * 填充审核参数
-     *
+     * 根据当前操作人自动填充审核参数// 管理员上传 / 更新图片自动过审，普通用户上传 / 编辑图片重置为待审核
      * @param picture
      * @param loginUser
      */

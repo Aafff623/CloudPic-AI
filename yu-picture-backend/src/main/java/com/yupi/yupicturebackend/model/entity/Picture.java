@@ -91,6 +91,7 @@ public class Picture implements Serializable {
     private Long spaceId;
 
     /**
+     * 审核相关字段：用于支持用户上传图片后的管理员审核流程
      * 审核状态：0-待审核; 1-通过; 2-拒绝
      */
     private Integer reviewStatus;
@@ -107,6 +108,7 @@ public class Picture implements Serializable {
 
     /**
      * 审核时间
+     * 由系统在审核时自动填充
      */
     private Date reviewTime;
 

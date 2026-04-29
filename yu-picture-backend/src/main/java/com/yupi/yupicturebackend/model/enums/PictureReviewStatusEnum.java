@@ -5,6 +5,7 @@ import lombok.Getter;
 
 /**
  * 图片审核状态枚举类
+ * 图片审核状态枚举，统一管理待审核、通过、拒绝三种状态
  */
 @Getter
 public enum PictureReviewStatusEnum {
@@ -39,4 +40,5 @@ public enum PictureReviewStatusEnum {
         }
         return null;
     }
+
 }

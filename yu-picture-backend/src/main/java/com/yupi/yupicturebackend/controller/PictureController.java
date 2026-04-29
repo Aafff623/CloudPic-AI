@@ -103,6 +103,7 @@ public class PictureController {
 
     /**
      * 通过 URL 上传图片（可重新上传）
+     * 通过远程 URL 导入图片：校验 URL -> 下载图片 -> 上传 COS -> 保存 picture 表
      */
     @PostMapping("/upload/url")
     @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_UPLOAD)
@@ -344,6 +345,7 @@ public class PictureController {
 
     /**
      * 批量抓取并创建图片
+     * 管理员批量抓取图片：根据关键词抓取图片 URL，逐个调用上传流程，返回成功导入数量// 单张失败不影响整体任务
      */
     @PostMapping("/upload/batch")
     @AuthCheck(mustRole = UserConstant.ADMIN_ROLE)

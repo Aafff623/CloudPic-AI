@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 批量导入图片请求
+ * 管理员批量抓取图片请求体，包含搜索关键词、抓取数量、名称前缀等参数
  */
 @Data
 public class PictureUploadByBatchRequest implements Serializable {
