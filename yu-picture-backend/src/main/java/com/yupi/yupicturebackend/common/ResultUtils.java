@@ -3,7 +3,7 @@ package com.yupi.yupicturebackend.common;
 import com.yupi.yupicturebackend.exception.ErrorCode;
 
 /**
- * 响应工具类
+ * 统一响应工具类，简化成功 / 失败响应的构造
  */
 public class ResultUtils {
 

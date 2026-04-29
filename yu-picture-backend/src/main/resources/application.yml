@@ -1,6 +1,8 @@
 server:
+#  项目的启动端口
   port: 8123
   servlet:
+#    接口的统一前缀
     context-path: /api
     # cookie 30 天过期
     session:

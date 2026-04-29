@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 /**
- * 全局异常处理器
+ * 全局异常处理器，统一捕获异常并返回 BaseResponse，避免异常直接暴露给前端
  */
 @RestControllerAdvice
 @Slf4j

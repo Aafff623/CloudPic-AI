@@ -2,6 +2,9 @@ package com.yupi.yupicturebackend.exception;
 
 import lombok.Getter;
 
+/**
+ * 统一错误码枚举，收敛系统中所有常见错误类型
+ */
 @Getter
 public enum ErrorCode {
 

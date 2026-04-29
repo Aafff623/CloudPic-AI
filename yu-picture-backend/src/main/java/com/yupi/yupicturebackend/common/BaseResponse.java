@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 /**
  * 全局响应封装类
- *
+ * 统一响应包装类，所有接口都返回 code、data、message，方便前端统一处理
  * @param <T>
  */
 @Data

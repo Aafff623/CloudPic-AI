@@ -1,7 +1,7 @@
 package com.yupi.yupicturebackend.exception;
 
 /**
- * 异常处理工具类
+ * 条件抛异常工具类，减少重复 if 判断
  */
 public class ThrowUtils {
 
