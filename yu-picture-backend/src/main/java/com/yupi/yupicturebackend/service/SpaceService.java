@@ -63,7 +63,7 @@ public interface SpaceService extends IService<Space> {
 
     /**
      * 根据空间级别填充空间对象
-     *
+     * 根据空间级别自动填充 maxSize / maxCount，避免前端随意传容量限制
      * @param space
      */
     void fillSpaceBySpaceLevel(Space space);

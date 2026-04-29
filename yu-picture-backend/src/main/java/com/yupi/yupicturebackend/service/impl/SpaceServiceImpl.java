@@ -35,9 +35,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @author 李鱼皮
- * @description 针对表【space(空间)】的数据库操作Service实现
- * @createDate 2024-12-18 19:53:34
+ * 创建空间：校验参数 -> 判断用户是否已有空间 -> 根据空间级别填充容量限制 -> 保存 space 表
  */
 @Service
 public class SpaceServiceImpl extends ServiceImpl<SpaceMapper, Space>
@@ -225,6 +223,10 @@ public class SpaceServiceImpl extends ServiceImpl<SpaceMapper, Space>
         return queryWrapper;
     }
 
+    /**
+     * 根据空间级别填充空间对象
+     * @param space
+     */
     @Override
     public void fillSpaceBySpaceLevel(Space space) {
         SpaceLevelEnum spaceLevelEnum = SpaceLevelEnum.getEnumByValue(space.getSpaceLevel());

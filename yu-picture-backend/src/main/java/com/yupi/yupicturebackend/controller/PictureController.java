@@ -223,7 +223,9 @@ public class PictureController {
     }
 
     /**
-     * 分页获取图片列表（封装类）
+     * 图片列表查询区分公共图库和私有空间
+     *      公共图库：spaceId is null + 审核通过
+     *      私有空间：spaceId = 指定空间，并校验当前用户是空间主人
      */
     @PostMapping("/list/page/vo")
     public BaseResponse<Page<PictureVO>> listPictureVOByPage(@RequestBody PictureQueryRequest pictureQueryRequest,

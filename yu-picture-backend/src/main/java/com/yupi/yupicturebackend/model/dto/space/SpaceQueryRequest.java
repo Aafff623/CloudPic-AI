@@ -7,7 +7,8 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 /**
- * 查询空间请求
+ * 空间查询请求体
+ *  管理员可按空间名称、级别、用户 id 等条件分页查询空间
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

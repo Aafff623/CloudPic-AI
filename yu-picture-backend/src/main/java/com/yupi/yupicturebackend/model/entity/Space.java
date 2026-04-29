@@ -7,7 +7,8 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 空间
+ * 空间数据库实体类，对应 space 表
+ * 用于表示用户私有图库，包括空间名称、级别、容量限制、已用容量、所属用户等信息
  * @TableName space
  */
 @TableName(value ="space")

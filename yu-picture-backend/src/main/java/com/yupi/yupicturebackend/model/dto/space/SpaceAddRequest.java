@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 创建空间请求
+ *  用户开通私有空间或管理员创建空间时使用
  */
 @Data
 public class SpaceAddRequest implements Serializable {

@@ -5,6 +5,7 @@ import lombok.Getter;
 
 /**
  * 空间级别枚举
+ *  用于统一管理不同套餐对应的最大图片数量和最大容量
  */
 @Getter
 public enum SpaceLevelEnum {

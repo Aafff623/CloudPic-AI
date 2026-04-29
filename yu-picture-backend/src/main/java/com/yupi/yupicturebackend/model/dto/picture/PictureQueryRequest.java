@@ -96,12 +96,13 @@ public class PictureQueryRequest extends PageRequest implements Serializable {
     private Date reviewTime;
 
     /**
-     * 空间 id
+     * 图片所属空间 id 查询指定空间下的图片
+     *      null 表示公共图库图片，非 null 表示私有空间图片
      */
     private Long spaceId;
 
     /**
-     * 是否只查询 spaceId 为 null 的数据
+     * 是否强制查询公共图库图片，即 spaceId is null
      */
     private boolean nullSpaceId;
 

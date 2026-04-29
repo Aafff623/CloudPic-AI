@@ -28,9 +28,9 @@ public interface PictureService extends IService<Picture> {
     void validPicture(Picture picture);
 
     /**
-     * 上传图片
-     * 用户和管理员共用的图片上传方法// 新增或编辑图片时需要校验权限，并根据用户角色填充审核状态
-     * @param inputSource          文件输入源
+     * 上传图片时
+     *      如果指定 spaceId，需要校验空间存在、当前用户有空间权限，并更新空间额度
+     * @param inputSource
      * @param pictureUploadRequest
      * @param loginUser
      * @return
@@ -117,7 +117,7 @@ public interface PictureService extends IService<Picture> {
 
     /**
      * 校验空间图片的权限
-     *
+     * 私有空间图片权限校验：只有空间所属用户或管理员可以查看、编辑、删除
      * @param loginUser
      * @param picture
      */
