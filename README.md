@@ -1,40 +1,35 @@
-# 智能协同云图库
+# CloudPic-AI - 智能协同云图库
 
 > 作者：threetwoa
 
 基于 Vue 3 + Spring Boot + COS + WebSocket 的 **企业级智能协同云图库平台**。
 
-## 项目介绍
+## 功能特性
 
-平台核心功能分为 4 大类：
+| 功能模块 | 说明 |
+|---------|------|
+| 公共图库 | 用户上传、检索图片素材，可用作表情包/壁纸/设计素材站 |
+| 后台管理 | 管理员审核、管理图片，数据统计分析 |
+| 个人云存储 | 私有空间批量管理、检索、编辑图片，可用作网盘/相册/作品集 |
+| 团队协作 | 团队空间共享图片，**实时协同编辑** |
 
-1. **公共图库**：所有用户都可以在平台公开上传和检索图片素材，可用作表情包网站、设计素材网站、壁纸网站等
-2. **后台管理**：管理员可以上传、审核和管理图片，并对系统内的图片进行分析
-3. **个人云存储**：个人用户可将图片上传至私有空间进行批量管理、检索、编辑和分析，可用作个人网盘、个人相册、作品集等
-4. **团队协作**：企业可开通团队空间并邀请成员，共享图片并 **实时协同编辑图片**，可用于企业活动相册、企业内部素材库等
-
-## 技术选型
+## 技术栈
 
 ### 后端
-
-- Java Spring Boot 框架
-- MySQL 数据库 + MyBatis-Plus 框架
-- Redis 分布式缓存 + Caffeine 本地缓存
-- COS 对象存储
-- ShardingSphere 分库分表
-- Sa-Token 权限控制
-- DDD 领域驱动设计
-- WebSocket 双向通信
-- Disruptor 高性能无锁队列
-- AI 绘图大模型接入
+- Spring Boot 2.7.6 + Java 17
+- MySQL + MyBatis-Plus 3.5.9
+- Redis + Caffeine (多级缓存)
+- Sa-Token (权限控制)
+- ShardingSphere (分库分表)
+- WebSocket + Disruptor (实时通信)
+- 腾讯云 COS (对象存储)
+- 阿里云 AI (图像处理)
 
 ### 前端
-
-- Vue 3 框架
-- Vite 打包工具
-- Ant Design Vue 组件库
-- Pinia 全局状态管理
-- TypeScript + ESLint + Prettier
+- Vue 3.5 + Vite 6
+- Ant Design Vue 4.2
+- Pinia + TypeScript
+- ECharts (数据可视化)
 
 ## 项目结构
 
@@ -51,7 +46,12 @@ yu-picture/
 
 ```bash
 cd yu-picture-backend
+
+# 配置 application.yml (数据库、Redis、COS)
+# 创建数据库: CREATE DATABASE yu_picture;
+
 mvn spring-boot:run
+# 访问 API 文档: http://localhost:8123/api/doc.html
 ```
 
 ### 前端
@@ -60,7 +60,24 @@ mvn spring-boot:run
 cd yu-picture-frontend
 npm install
 npm run dev
+# 访问: http://localhost:5173
 ```
+
+## 核心架构
+
+### 后端分层
+```
+Controller → Service → Manager → Mapper
+                ↓
+           External API (COS, AI)
+```
+
+### 核心设计
+- **统一响应**: `BaseResponse<T>` 封装所有接口响应
+- **VO 脱敏**: Entity 不直接返回，通过 VO 过滤敏感字段
+- **多级缓存**: Caffeine (本地) + Redis (分布式)
+- **空间分表**: 按 `spaceId` 动态分表，支持海量数据
+- **模板方法**: `PictureUploadTemplate` 支持多种上传方式扩展
 
 ## 许可证
 
