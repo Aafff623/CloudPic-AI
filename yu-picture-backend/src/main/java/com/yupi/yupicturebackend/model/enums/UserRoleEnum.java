@@ -4,7 +4,7 @@ import cn.hutool.core.util.ObjUtil;
 import lombok.Getter;
 
 /**
- * 用户角色枚举
+ *  用户角色枚举，用于区分 普通用户 和  会员 和 管理员
  */
 @Getter
 public enum UserRoleEnum {

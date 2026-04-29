@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * 用户视图（脱敏）
+ * 普通用户视图对象，用于用户列表、用户详情等场景，避免返回密码等敏感字段
  */
 @Data
 public class UserVO implements Serializable {

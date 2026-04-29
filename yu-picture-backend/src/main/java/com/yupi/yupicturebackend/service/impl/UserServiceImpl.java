@@ -97,6 +97,14 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         return user.getId();
     }
 
+    /**
+     * 用户登录
+     * 校验账号密码 -> 查询用户 -> 记录登录态 -> 返回脱敏用户
+     * @param userAccount  用户账户
+     * @param userPassword 用户密码
+     * @param request
+     * @return
+     */
     @Override
     public LoginUserVO userLogin(String userAccount, String userPassword, HttpServletRequest request) {
         // 1. 校验
@@ -131,7 +139,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
     /**
      * 获取加密后的密码
-     *
+     * 密码加密：使用盐值 + 原密码生成摘要，避免明文密码入库
      * @param userPassword 用户密码
      * @return 加密后的密码
      */
@@ -142,6 +150,12 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         return DigestUtils.md5DigestAsHex((SALT + userPassword).getBytes());
     }
 
+    /**
+     * 获取当前登录用户
+     * 从 session 中取用户信息，并查询数据库确认用户仍然有效
+     * @param request
+     * @return 获取当前登录用户
+     */
     @Override
     public User getLoginUser(HttpServletRequest request) {
         // 判断是否已经登录
@@ -177,7 +191,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
 
     /**
      * 获得脱敏后的用户信息
-     *
+     * 将 User 转为 UserVO，过滤密码等敏感字段
      * @param user
      * @return
      */

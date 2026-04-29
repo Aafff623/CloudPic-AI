@@ -7,7 +7,8 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- * 用户
+ * 用户数据库实体类，对应 user 表
+ * 注意：该对象包含密码等敏感字段，不能直接返回给前端
  * @TableName user
  */
 @TableName(value ="user")

@@ -29,7 +29,7 @@ public interface UserService extends IService<User> {
 
     /**
      * 用户登录
-     *
+     * 校验账号密码 -> 查询用户 -> 记录登录态 -> 返回脱敏用户
      * @param userAccount  用户账户
      * @param userPassword 用户密码
      * @param request
@@ -47,7 +47,7 @@ public interface UserService extends IService<User> {
 
     /**
      * 获取当前登录用户
-     *
+     * 从 session 中取用户信息，并查询数据库确认用户仍然有效
      * @param request
      * @return
      */
@@ -63,7 +63,7 @@ public interface UserService extends IService<User> {
 
     /**
      * 获得脱敏后的用户信息
-     *
+     * 将 User 转为 UserVO，过滤密码等敏感字段
      * @param user
      * @return
      */
@@ -87,6 +87,7 @@ public interface UserService extends IService<User> {
 
     /**
      * 获取查询条件
+     * 根据查询请求动态构造 MyBatis Plus 查询条件
      * @param userQueryRequest
      * @return
      */
