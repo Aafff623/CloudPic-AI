@@ -6,7 +6,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 图片批量编辑请求
+ * 图片批量编辑请求体
+ *      包含 spaceId、pictureIdList、分类、标签、命名规则等字段
  */
 @Data
 public class PictureEditByBatchRequest implements Serializable {

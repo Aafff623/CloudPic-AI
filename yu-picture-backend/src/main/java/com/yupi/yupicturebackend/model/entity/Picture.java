@@ -76,7 +76,8 @@ public class Picture implements Serializable {
     private String picFormat;
 
     /**
-     * 图片主色调
+     * 图片主色调字段
+     *      用于颜色搜索；上传时提取主色调并保存
      */
     private String picColor;
 

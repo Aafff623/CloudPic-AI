@@ -16,6 +16,8 @@ import java.util.Map;
 
 /**
  * 获取以图搜图页面地址（step 1）
+ * 以图搜图：
+ *      基于当前图片 URL 调用外部图片搜索能力，返回视觉相似的图片结果
  */
 @Slf4j
 public class GetImagePageUrlApi {

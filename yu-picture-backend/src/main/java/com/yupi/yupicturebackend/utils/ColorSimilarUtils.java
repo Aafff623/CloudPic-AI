@@ -3,7 +3,8 @@ package com.yupi.yupicturebackend.utils;
 import java.awt.*;
 
 /**
- * 工具类：计算颜色相似度
+ * 颜色相似度工具类
+ *      根据两个颜色的 RGB 距离计算相似度
  */
 public class ColorSimilarUtils {
 
@@ -13,7 +14,8 @@ public class ColorSimilarUtils {
 
     /**
      * 计算两个颜色的相似度
-     *
+     * 颜色搜索：
+     *      查询空间图片 -> 读取图片主色调 -> 计算与目标颜色的相似度 -> 按相似度排序返回
      * @param color1 第一个颜色
      * @param color2 第二个颜色
      * @return 相似度（0到1之间，1为完全相同）

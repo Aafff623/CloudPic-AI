@@ -9,7 +9,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 图片查询请求对象，用于按关键词、分类、标签、用户等条件分页搜索图片
+ * 图片查询请求对象
+ *      支持名称、简介、分类、标签、格式、宽高、比例、大小等多维检索
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -36,7 +37,8 @@ public class PictureQueryRequest extends PageRequest implements Serializable {
     private String category;
 
     /**
-     * 标签
+     * 标签搜索字段，
+     *      数据库中 tags 通常以 JSON 字符串存储，查询时需要逐个标签匹配
      */
     private List<String> tags;
 

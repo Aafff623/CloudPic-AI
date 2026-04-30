@@ -51,7 +51,8 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 图片接口层，接收图片上传、查询、详情、编辑、删除等请求
+ * 图片接口层
+ *      接收图片上传、查询、详情、编辑、删除等请求
  */
 @Slf4j
 @RestController
@@ -390,7 +391,8 @@ public class PictureController {
     }
 
     /**
-     * 批量编辑图片
+     * 批量编辑图片：
+     *      校验参数 -> 校验空间权限 -> 查询空间内图片 -> 批量修改分类 / 标签 / 名称 -> updateBatchById
      */
     @PostMapping("/edit/batch")
     @SaSpaceCheckPermission(value = SpaceUserPermissionConstant.PICTURE_EDIT)

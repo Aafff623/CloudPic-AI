@@ -135,7 +135,7 @@ public interface PictureService extends IService<Picture> {
 
     /**
      * 批量编辑图片
-     *
+     *      校验参数 -> 校验空间权限 -> 查询空间内图片 -> 批量修改分类 / 标签 / 名称 -> updateBatchById
      * @param pictureEditByBatchRequest
      * @param loginUser
      */
