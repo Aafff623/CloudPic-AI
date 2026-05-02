@@ -28,6 +28,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * 图片编辑 WebSocket 处理器
+ *      图片协同编辑 WebSocket 处理器，负责连接管理、消息接收、编辑锁控制和消息广播
  */
 @Component
 @Slf4j

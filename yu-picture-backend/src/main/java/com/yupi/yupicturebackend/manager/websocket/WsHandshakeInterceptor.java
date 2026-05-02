@@ -27,6 +27,7 @@ import java.util.Map;
 
 /**
  * WebSocket 拦截器，建立连接前要先校验
+ *      握手拦截器，用于在建立连接前校验用户登录态、图片信息和团队空间编辑权限
  */
 @Slf4j
 @Component

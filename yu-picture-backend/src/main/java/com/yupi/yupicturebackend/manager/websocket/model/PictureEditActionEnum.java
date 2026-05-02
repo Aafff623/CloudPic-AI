@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * 图片编辑动作枚举
+ *      编辑动作枚举：左旋、右旋、放大、缩小
  */
 @Getter
 public enum PictureEditActionEnum {

@@ -9,6 +9,7 @@ import javax.annotation.Resource;
 
 /**
  * WebSocket 配置（定义连接）
+ *      WebSocket 配置类，注册图片协同编辑的 WebSocket 处理器和握手拦截器
  */
 @Configuration
 @EnableWebSocket
