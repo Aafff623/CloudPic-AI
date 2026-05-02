@@ -35,7 +35,8 @@ import java.util.*;
 import static com.yupi.yupicturebackend.constant.UserConstant.USER_LOGIN_STATE;
 
 /**
- * 自定义权限加载接口实现类
+ * Sa-Token 的一个扩展点
+ *      自定义权限加载接口实现类, 推导用户在哪个空间, 有什么角色, 能不能执行对应的操作
  */
 @Component    // 保证此类被 SpringBoot 扫描，完成 Sa-Token 的自定义权限验证扩展
 public class StpInterfaceImpl implements StpInterface {

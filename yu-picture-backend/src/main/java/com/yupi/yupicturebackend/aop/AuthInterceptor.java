@@ -17,6 +17,9 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 判断在某个空间 space 里面的 角色, 有没有对应空间内的权限
+ */
 @Aspect
 @Component
 public class AuthInterceptor {

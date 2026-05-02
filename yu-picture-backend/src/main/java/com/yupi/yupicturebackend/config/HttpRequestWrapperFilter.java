@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  * 请求包装过滤器
- *
+ *     将请求体 json body 缓存起来, 让前端传来的 请求体 可以被 之后的业务模块层 重复的读取
  * @author pine
  */
 @Order(1)

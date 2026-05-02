@@ -9,12 +9,14 @@ import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 
 /**
  * Spring MVC Json 配置
+ *      规范后端的 JSON 如何进行返回
  */
 @JsonComponent
 public class JsonConfig {
 
     /**
      * 添加 Long 转 json 精度丢失的配置
+     *      防止前端丢失整数的精度
      */
     @Bean
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {

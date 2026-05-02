@@ -9,7 +9,7 @@ import com.yupi.yupicturebackend.model.vo.space.analyze.*;
 import java.util.List;
 
 /**
- * @author 李鱼皮
+ * @author 3toA
  * @createDate 2024-12-18 19:53:34
  */
 public interface SpaceAnalyzeService extends IService<Space> {

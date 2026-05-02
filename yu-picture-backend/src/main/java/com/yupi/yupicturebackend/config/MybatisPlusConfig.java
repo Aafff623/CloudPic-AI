@@ -7,6 +7,9 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * 给 Mybatis plus 增加 分页的能力
+ */
 @Configuration
 @MapperScan("com.yupi.yupicturebackend.mapper")
 public class MybatisPlusConfig {

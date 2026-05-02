@@ -12,7 +12,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 腾讯云 COS 客户端配置，读取密钥、地域、桶名等对象存储配置
+ * 腾讯云 COS 客户端配置
+ *      读取密钥、地域、桶名等对象存储配置
  */
 @Configuration
 @ConfigurationProperties(prefix = "cos.client")
@@ -44,6 +45,11 @@ public class CosClientConfig {
      */
     private String bucket;
 
+    /**
+     * 创建一个 COSClient Bean 对象
+     *      方便提供给 CosManager 调用 上传 / 下载文件的能力
+     * @return
+     */
     @Bean
     public COSClient cosClient() {
         // 1 初始化用户身份信息（secretId, secretKey）。

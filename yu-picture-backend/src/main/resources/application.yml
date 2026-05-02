@@ -60,6 +60,7 @@ spring:
     props:
       sql-show: true
   profiles:
+    # 本地启动会读 prod 覆盖配置。
     active: prod
 mybatis-plus:
   configuration:

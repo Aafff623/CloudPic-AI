@@ -16,6 +16,11 @@ public class PictureEditEventDisruptorConfig {
     @Resource
     private PictureEditEventWorkHandler pictureEditEventWorkHandler;
 
+    /**
+     * 接受编辑事件 -> 放进队列 -> worker 异步处理
+     *      让 WebSocket 协同编辑事件处理更快, 更扛并发
+     * @return
+     */
     @Bean("pictureEditEventDisruptor")
     public Disruptor<PictureEditEvent> messageModelRingBuffer() {
         // 定义 ringBuffer 的大小

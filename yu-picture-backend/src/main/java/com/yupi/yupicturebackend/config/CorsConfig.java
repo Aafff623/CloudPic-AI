@@ -5,7 +5,8 @@ import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
- * 全局跨域配置，允许本地前端请求后端接口
+ * 全局跨域配置
+ *      允许本地前端跨域请求后端接口
  */
 @Configuration
 public class CorsConfig implements WebMvcConfigurer {
