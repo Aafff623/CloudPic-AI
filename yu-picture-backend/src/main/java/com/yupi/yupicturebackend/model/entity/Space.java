@@ -31,7 +31,8 @@ public class Space implements Serializable {
     private Integer spaceLevel;
 
     /**
-     * 空间类型：0-私有 1-团队
+     * spaceType 用于区分私有空间和团队空间
+     *      0 表示私有空间，1 表示团队空间
      */
     private Integer spaceType;
 

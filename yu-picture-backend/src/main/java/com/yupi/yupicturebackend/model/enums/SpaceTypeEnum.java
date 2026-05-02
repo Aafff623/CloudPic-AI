@@ -5,6 +5,7 @@ import lombok.Getter;
 
 /**
  * 空间类型枚举类
+ *      0 表示私有空间，1 表示团队空间
  */
 @Getter
 public enum SpaceTypeEnum {

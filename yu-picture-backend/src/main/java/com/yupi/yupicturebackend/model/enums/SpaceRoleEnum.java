@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 /**
  * 空间角色枚举
+ *      团队空间权限不再只判断空间 owner，而是根据 space_user 中的 spaceRole 判断用户是否拥有对应权限
  */
 @Getter
 public enum SpaceRoleEnum {
