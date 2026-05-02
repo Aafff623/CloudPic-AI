@@ -17,9 +17,10 @@ A full-stack image management platform with four main features:
 ```
 yu-picture/
 ├── yu-picture-backend/       # Spring Boot 后端 (经典架构)
-├── yu-picture-backend-ddd/   # Spring Boot 后端 (DDD架构)
 └── yu-picture-frontend/      # Vue 3 前端
 ```
+
+Note: A DDD (Domain-Driven Design) version of the backend is mentioned in the README but does not currently exist as a separate directory.
 
 ## Tech Stack
 

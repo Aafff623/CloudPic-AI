@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 空间使用排行分析请求（仅管理员）
+ *      管理员按 totalSize 倒序查看占用最高的空间
  */
 @Data
 public class SpaceRankAnalyzeRequest implements Serializable {

@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * 空间图片大小分析响应
+ *      按 picSize 分段统计图片数量，识别大图占比
  */
 @Data
 @AllArgsConstructor

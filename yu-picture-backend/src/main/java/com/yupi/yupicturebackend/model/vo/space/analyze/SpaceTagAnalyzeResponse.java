@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * 空间图片标签分析响应
+ *      解析 tags JSON 数组，统计每个标签出现次数
  */
 @Data
 @AllArgsConstructor

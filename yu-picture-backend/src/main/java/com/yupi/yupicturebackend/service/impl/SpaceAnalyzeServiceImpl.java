@@ -246,7 +246,8 @@ public class SpaceAnalyzeServiceImpl extends ServiceImpl<SpaceMapper, Space>
 
     /**
      * 校验空间分析权限
-     *
+         * queryAll / queryPublic 仅管理员可访问
+         * 私有空间分析需要校验当前用户是否有该空间权限
      * @param spaceAnalyzeRequest
      * @param loginUser
      */
@@ -267,8 +268,10 @@ public class SpaceAnalyzeServiceImpl extends ServiceImpl<SpaceMapper, Space>
     }
 
     /**
-     * 根据请求对象封装查询条件
-     *
+     * 根据分析范围填充图片查询条件
+         // queryAll：不限制 spaceId
+         // queryPublic：spaceId is null
+         // 默认：spaceId = 指定空间 id
      * @param spaceAnalyzeRequest
      * @param queryWrapper
      */

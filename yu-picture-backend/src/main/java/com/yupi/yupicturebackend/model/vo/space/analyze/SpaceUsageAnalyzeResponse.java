@@ -6,6 +6,7 @@ import java.io.Serializable;
 
 /**
  * 空间资源使用分析响应类
+ *      统计当前空间已用容量 / 图片数量与最大额度的占比
  */
 @Data
 public class SpaceUsageAnalyzeResponse implements Serializable {

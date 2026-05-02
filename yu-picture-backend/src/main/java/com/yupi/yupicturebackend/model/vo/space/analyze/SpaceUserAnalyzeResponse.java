@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * 空间用户上传行为分析响应
+ *      按时间维度统计图片上传数量趋势
  */
 @Data
 @AllArgsConstructor

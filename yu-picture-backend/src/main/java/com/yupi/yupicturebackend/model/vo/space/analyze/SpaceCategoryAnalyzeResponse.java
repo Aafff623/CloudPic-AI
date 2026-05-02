@@ -8,6 +8,7 @@ import java.io.Serializable;
 
 /**
  * 空间图片分类分析响应
+ *      按 category 分组，统计每个分类下的图片数量和总大小
  */
 @Data
 @AllArgsConstructor
